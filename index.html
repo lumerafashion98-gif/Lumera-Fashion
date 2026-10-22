@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taana Baana — تانا بانا | Pakistani Craft Clothing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Jost:wght@300;400;500;600&family=Noto+Nastaliq+Urdu:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14182B;
+    --ink-soft:#1F2440;
+    --paper:#EFE3CA;
+    --paper-dim:#E2D3AF;
+    --gold:#AB7D28;
+    --gold-soft:#C99F4C;
+    --rani:#C23574;
+    --rust:#8C3A2B;
+    --teal:#2F6E5E;
+    --max:1180px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Jost', sans-serif;
+    font-weight:300;
+    overflow-x:hidden;
+  }
+  ::selection{ background:var(--rani); color:var(--paper); }
+  a{ color:inherit; text-decoration:none; }
+  img{max-width:100%; display:block;}
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 32px; }
+  h1,h2,h3{ font-family:'Fraunces', serif; font-weight:500; letter-spacing:0.01em; }
+  .urdu{ font-family:'Noto Nastaliq Urdu', serif; direction:rtl; }
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--gold-soft);
+  }
+
+  /* ---------- thread divider signature ---------- */
+  .thread-divider{ position:relative; height:34px; width:100%; overflow:hidden; }
+  .thread-divider svg{ width:100%; height:100%; display:block; }
+  .thread-line{ stroke:var(--gold); stroke-width:1; opacity:0.55; }
+  .shuttle{ fill:var(--rani); }
+
+  /* ---------- nav ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(20,24,43,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid rgba(171,125,40,0.25);
+  }
+  nav{ display:flex; align-items:center; justify-content:space-between; padding:18px 0; }
+  .logo{ display:flex; align-items:baseline; gap:10px; }
+  .logo-en{ font-family:'Fraunces', serif; font-size:22px; letter-spacing:0.04em; }
+  .logo-ur{ font-family:'Noto Nastaliq Urdu', serif; font-size:20px; color:var(--gold-soft); direction:rtl; }
+  .nav-links{ display:flex; gap:34px; font-size:14px; letter-spacing:0.03em; }
+  .nav-links a{ position:relative; padding-bottom:4px; opacity:0.85; transition:opacity .2s; }
+  .nav-links a:hover{ opacity:1; }
+  .nav-links a::after{
+    content:''; position:absolute; left:0; bottom:0; width:0; height:1px;
+    background:var(--gold); transition:width .25s ease;
+  }
+  .nav-links a:hover::after{ width:100%; }
+  .nav-cta{
+    font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:0.12em;
+    text-transform:uppercase; border:1px solid var(--gold); padding:9px 16px;
+    transition: background .2s, color .2s;
+  }
+  .nav-cta:hover{ background:var(--gold); color:var(--ink); }
+  .menu-toggle{ display:none; background:none; border:0; color:var(--paper); font-size:22px; cursor:pointer; }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative; padding:110px 0 90px; overflow:hidden;
+  }
+  .loom-bg{ position:absolute; inset:0; opacity:0.16; pointer-events:none; }
+  .hero-inner{ position:relative; display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px; align-items:center; }
+  .hero h1{
+    font-size:clamp(40px, 6vw, 76px); line-height:1.02; color:var(--paper);
+  }
+  .hero h1 em{ font-style:italic; color:var(--gold-soft); }
+  .hero p.lede{
+    margin-top:22px; font-size:17px; line-height:1.7; max-width:46ch; color:#DCD0B4;
+  }
+  .hero-ctas{ margin-top:34px; display:flex; gap:16px; flex-wrap:wrap; }
+  .btn-primary{
+    background:var(--rani); color:var(--paper); font-family:'JetBrains Mono', monospace;
+    font-size:12px; letter-spacing:0.1em; text-transform:uppercase; padding:15px 26px;
+    transition:transform .2s, background .2s;
+  }
+  .btn-primary:hover{ background:#a92a63; transform:translateY(-2px); }
+  .btn-ghost{
+    border:1px solid var(--paper-dim); color:var(--paper); font-family:'JetBrains Mono', monospace;
+    font-size:12px; letter-spacing:0.1em; text-transform:uppercase; padding:15px 26px;
+    transition:border-color .2s, color .2s;
+  }
+  .btn-ghost:hover{ border-color:var(--gold); color:var(--gold-soft); }
+
+  .swatch-stack{ position:relative; height:420px; }
+  .swatch{
+    position:absolute; width:220px; height:280px; border-radius:2px;
+    box-shadow:0 30px 60px -20px rgba(0,0,0,0.6);
+    clip-path: polygon(0% 4%, 4% 0%, 96% 0%, 100% 4%, 100% 96%, 96% 100%, 4% 100%, 0% 96%);
+  }
+  .swatch-a{ background:repeating-linear-gradient(45deg, var(--rust), var(--rust) 10px, #a3452f 10px, #a3452f 20px); top:0; left:40px; transform:rotate(-6deg); z-index:2;}
+  .swatch-b{ background:radial-gradient(circle at 30% 30%, var(--gold-soft), var(--gold) 60%); top:60px; left:170px; transform:rotate(8deg); z-index:1;}
+  .swatch-c{ background:repeating-radial-gradient(circle at 50% 50%, var(--teal), var(--teal) 8px, #256355 8px, #256355 16px); top:150px; left:10px; transform:rotate(4deg); z-index:3;}
+  .swatch-label{
+    position:absolute; bottom:14px; left:14px; font-family:'JetBrains Mono', monospace;
+    font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(255,255,255,0.85);
+  }
+
+  /* ---------- section shared ---------- */
+  section{ padding:90px 0; }
+  .section-head{ max-width:640px; margin-bottom:56px; }
+  .section-head h2{ font-size:clamp(30px,4vw,44px); color:var(--paper); margin-top:10px; }
+  .section-head p{ margin-top:16px; color:#CFC2A2; line-height:1.7; font-size:15.5px; }
+
+  /* ---------- collections ---------- */
+  .collections{ background:var(--paper); color:var(--ink); }
+  .collections .eyebrow{ color:var(--rust); }
+  .collections .section-head p{ color:#4b4534; }
+  .col-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:28px; }
+  .col-card{
+    background:var(--ink); border-radius:2px; overflow:hidden;
+    transition:transform .3s ease; position:relative;
+  }
+  .col-card:hover{ transform:translateY(-8px); }
+  .col-swatch{ height:230px; position:relative; }
+  .col-swatch.lawn{ background:
+      repeating-linear-gradient(115deg, #2F6E5E 0 18px, #245549 18px 20px),
+      repeating-linear-gradient(25deg, transparent 0 26px, rgba(239,227,202,0.15) 26px 28px); }
+  .col-swatch.chikan{ background:var(--paper-dim);
+      background-image: radial-gradient(circle, #14182B 1.5px, transparent 1.6px);
+      background-size:18px 18px; background-color:#E7D9B6;}
+  .col-swatch.bridal{ background:
+      repeating-linear-gradient(90deg, var(--rani) 0 3px, #a92a63 3px 6px),
+      radial-gradient(circle at 50% 50%, var(--gold-soft), transparent 70%); }
+  .col-body{ padding:24px 22px 28px; }
+  .col-body .eyebrow{ color:var(--gold-soft); }
+  .col-body h3{ color:var(--paper); font-size:22px; margin-top:8px; }
+  .col-body p{ margin-top:10px; font-size:14px; line-height:1.6; color:#C7BA9C; }
+  .col-price{ margin-top:16px; font-family:'JetBrains Mono', monospace; font-size:13px; color:var(--gold-soft); }
+
+  /* ---------- craft process ---------- */
+  .craft{ background:var(--ink); }
+  .craft .section-head p{ color:#CFC2A2; }
+  .craft-list{ display:grid; grid-template-columns:repeat(4, 1fr); gap:0; counter-reset:step; border-top:1px solid rgba(171,125,40,0.3); }
+  .craft-step{
+    padding:28px 22px; border-right:1px solid rgba(171,125,40,0.3);
+    counter-increment:step; position:relative;
+  }
+  .craft-step:last-child{ border-right:none; }
+  .craft-step::before{
+    content: counter(step, decimal-leading-zero);
+    font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--rani);
+    display:block; margin-bottom:14px; letter-spacing:0.08em;
+  }
+  .craft-step h4{ font-family:'Fraunces', serif; font-weight:500; font-size:19px; color:var(--paper); }
+  .craft-step p{ margin-top:10px; font-size:13.5px; line-height:1.6; color:#B9AC8C; }
+
+  /* ---------- lookbook ---------- */
+  .lookbook{ background:var(--ink); }
+  .look-grid{ display:grid; grid-template-columns:repeat(4, 1fr); grid-auto-rows:150px; gap:14px; }
+  .look-tile{ border-radius:2px; }
+  .look-tile:nth-child(1){ grid-row:span 2; background:repeating-conic-gradient(var(--rust) 0% 25%, #a3452f 0% 50%); background-size:26px 26px;}
+  .look-tile:nth-child(2){ background:radial-gradient(circle, var(--gold-soft), var(--gold)); }
+  .look-tile:nth-child(3){ background:repeating-linear-gradient(60deg, var(--teal) 0 12px, #245549 12px 24px); }
+  .look-tile:nth-child(4){ grid-row:span 2; background:repeating-linear-gradient(90deg, var(--rani) 0 5px, #9c2b60 5px 10px); }
+  .look-tile:nth-child(5){ background:var(--paper-dim); background-image:radial-gradient(circle, #14182B 1.5px, transparent 1.6px); background-size:16px 16px; background-color:#E7D9B6;}
+  .look-tile:nth-child(6){ background:linear-gradient(135deg, var(--rust), var(--gold)); }
+  .look-tile:nth-child(7){ background:linear-gradient(135deg, var(--teal), var(--ink-soft)); }
+
+  /* ---------- newsletter / footer ---------- */
+  .signup{ background:var(--ink-soft); border-top:1px solid rgba(171,125,40,0.25); border-bottom:1px solid rgba(171,125,40,0.25); }
+  .signup-inner{ display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap; padding:60px 0; }
+  .signup h2{ font-size:clamp(26px,3.4vw,36px); max-width:480px; color:var(--paper); }
+  .signup-form{ display:flex; gap:0; max-width:420px; width:100%; }
+  .signup-form input{
+    flex:1; background:transparent; border:1px solid var(--paper-dim); border-right:none;
+    padding:15px 16px; color:var(--paper); font-family:'Jost'; font-size:14px;
+  }
+  .signup-form input::placeholder{ color:#8f8567; }
+  .signup-form button{
+    background:var(--gold); border:1px solid var(--gold); color:var(--ink);
+    font-family:'JetBrains Mono', monospace; font-size:12px; letter-spacing:0.08em; text-transform:uppercase;
+    padding:0 22px; cursor:pointer;
+  }
+
+  footer{ padding:64px 0 40px; }
+  .foot-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:32px; }
+  .foot-brand .logo-en{ font-size:20px; }
+  .foot-brand p{ margin-top:14px; color:#A79A7C; font-size:13.5px; line-height:1.7; max-width:32ch; }
+  .foot-col h5{ font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold-soft); margin-bottom:16px; }
+  .foot-col a{ display:block; font-size:14px; color:#CFC2A2; margin-bottom:10px; opacity:0.9; }
+  .foot-col a:hover{ opacity:1; color:var(--paper); }
+  .foot-bottom{ margin-top:56px; padding-top:24px; border-top:1px solid rgba(171,125,40,0.2); display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-size:12px; color:#8f8567; }
+  .foot-bottom .urdu{ color:var(--gold-soft); font-size:15px; }
+
+  @media (max-width:900px){
+    .hero-inner{ grid-template-columns:1fr; }
+    .swatch-stack{ height:300px; margin-top:20px;}
+    .col-grid{ grid-template-columns:1fr; }
+    .craft-list{ grid-template-columns:1fr 1fr; }
+    .craft-step{ border-bottom:1px solid rgba(171,125,40,0.3); }
+    .look-grid{ grid-template-columns:repeat(2,1fr); }
+    .foot-grid{ grid-template-columns:1fr 1fr; }
+    .nav-links{ display:none; }
+    .menu-toggle{ display:block; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="logo">
+      <span class="logo-en">TAANA BAANA</span>
+      <span class="logo-ur">تانا بانا</span>
+    </div>
+    <div class="nav-links">
+      <a href="#collections">Collections</a>
+      <a href="#craft">Craft</a>
+      <a href="#lookbook">Lookbook</a>
+      <a href="#signup">Stockists</a>
+    </div>
+    <a href="#collections" class="nav-cta">Shop the Edit</a>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </nav>
+</header>
+
+<section class="hero">
+  <svg class="loom-bg" preserveAspectRatio="none" viewBox="0 0 100 100">
+    <g stroke="#AB7D28" stroke-width="0.15">
+      <line x1="0" y1="10" x2="100" y2="10"/><line x1="0" y1="25" x2="100" y2="25"/>
+      <line x1="0" y1="40" x2="100" y2="40"/><line x1="0" y1="55" x2="100" y2="55"/>
+      <line x1="0" y1="70" x2="100" y2="70"/><line x1="0" y1="85" x2="100" y2="85"/>
+      <line x1="10" y1="0" x2="10" y2="100"/><line x1="25" y1="0" x2="25" y2="100"/>
+      <line x1="40" y1="0" x2="40" y2="100"/><line x1="55" y1="0" x2="55" y2="100"/>
+      <line x1="70" y1="0" x2="70" y2="100"/><line x1="85" y1="0" x2="85" y2="100"/>
+    </g>
+  </svg>
+  <div class="wrap hero-inner">
+    <div>
+      <p class="eyebrow">Lahore, Pakistan &mdash; Est. workshop, not a factory</p>
+      <h1>The thread<br>remembers<br><em>the hand</em> that pulled it.</h1>
+      <p class="lede">Taana Baana means warp and weft — the two threads every fabric is built from. We work with block printers in Bhawalpur, chikankari artisans in Multan, and hand-embroiderers who've kept a needle in the family for three generations.</p>
+      <div class="hero-ctas">
+        <a href="#collections" class="btn-primary">View the Edit</a>
+        <a href="#craft" class="btn-ghost">How it's made</a>
+      </div>
+    </div>
+    <div class="swatch-stack">
+      <div class="swatch swatch-a"><span class="swatch-label">Ajrak Rust · 04</span></div>
+      <div class="swatch swatch-b"><span class="swatch-label">Haldi Gold · 07</span></div>
+      <div class="swatch swatch-c"><span class="swatch-label">Sindh Teal · 02</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="thread-divider">
+  <svg viewBox="0 0 1200 34" preserveAspectRatio="none">
+    <line class="thread-line" x1="0" y1="8" x2="1200" y2="8"/>
+    <line class="thread-line" x1="0" y1="17" x2="1200" y2="17"/>
+    <line class="thread-line" x1="0" y1="26" x2="1200" y2="26"/>
+    <circle class="shuttle" cx="60" cy="17" r="4"/>
+  </svg>
+</div>
+
+<section class="collections" id="collections">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">The Edit</p>
+      <h2>Three collections, one loom.</h2>
+      <p>Each line is named for the process, not the season — because the craft doesn't change, only the cloth does.</p>
+    </div>
+    <div class="col-grid">
+      <div class="col-card">
+        <div class="col-swatch lawn"></div>
+        <div class="col-body">
+          <p class="eyebrow">01 — Everyday</p>
+          <h3>Lawn &amp; Cotton</h3>
+          <p>Hand block-printed unstitched suits in breathable cotton lawn, dyed the traditional ajrak way with natural indigo and madder.</p>
+          <p class="col-price">Rs 4,500 — Rs 9,800</p>
+        </div>
+      </div>
+      <div class="col-card">
+        <div class="col-swatch chikan"></div>
+        <div class="col-body">
+          <p class="eyebrow">02 — Formal</p>
+          <h3>Chikankari</h3>
+          <p>Lucknawi-style shadow work embroidered by hand on Multani lawn, finished with mother-of-pearl buttons.</p>
+          <p class="col-price">Rs 12,000 — Rs 24,000</p>
+        </div>
+      </div>
+      <div class="col-card">
+        <div class="col-swatch bridal"></div>
+        <div class="col-body">
+          <p class="eyebrow">03 — Occasion</p>
+          <h3>Rani Bridal</h3>
+          <p>Heavy zardozi and gota work on silk and raw organza, made to order with a four-week atelier turnaround.</p>
+          <p class="col-price">Rs 65,000 onward</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="craft" id="craft">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Warp to Weft</p>
+      <h2>How a length of cloth becomes a suit.</h2>
+      <p>Four hands touch every piece before it reaches yours — this is the order they work in.</p>
+    </div>
+    <div class="craft-list">
+      <div class="craft-step">
+        <h4>Dye the base</h4>
+        <p>Cotton is soaked in natural indigo and madder vats for up to six hours, then sun-dried on the roof.</p>
+      </div>
+      <div class="craft-step">
+        <h4>Block print</h4>
+        <p>Hand-carved teak blocks stamp the ajrak motifs, layer by layer, each color needing its own block.</p>
+      </div>
+      <div class="craft-step">
+        <h4>Hand embroider</h4>
+        <p>Chikankari and gota artisans work the panels on a wooden frame, one needle pass at a time.</p>
+      </div>
+      <div class="craft-step">
+        <h4>Cut &amp; stitch</h4>
+        <p>Our tailors in Lahore cut to your measurements and finish every seam with a French seam inside.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="lookbook" id="lookbook">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Lookbook</p>
+      <h2>Swatches from the current run.</h2>
+      <p>A preview of the colourways moving through the workshop this month.</p>
+    </div>
+    <div class="look-grid">
+      <div class="look-tile"></div>
+      <div class="look-tile"></div>
+      <div class="look-tile"></div>
+      <div class="look-tile"></div>
+      <div class="look-tile"></div>
+      <div class="look-tile"></div>
+      <div class="look-tile"></div>
+    </div>
+  </div>
+</section>
+
+<section class="signup" id="signup">
+  <div class="wrap signup-inner">
+    <h2>Get word of new drops before the lawn season sells out.</h2>
+    <form class="signup-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Subscribed ✓';">
+      <input type="email" placeholder="you@email.com" required>
+      <button type="submit">Notify Me</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="logo-en">TAANA BAANA</span>
+        <p>Handworked Pakistani clothing, made to order in Lahore and shipped worldwide.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Shop</h5>
+        <a href="#collections">Lawn &amp; Cotton</a>
+        <a href="#collections">Chikankari</a>
+        <a href="#collections">Rani Bridal</a>
+      </div>
+      <div class="foot-col">
+        <h5>Studio</h5>
+        <a href="#craft">Our Craft</a>
+        <a href="#lookbook">Lookbook</a>
+        <a href="#signup">Stockists</a>
+      </div>
+      <div class="foot-col">
+        <h5>Contact</h5>
+        <a href="mailto:hello@taanabaana.pk">hello@taanabaana.pk</a>
+        <a href="tel:+924211234567">+92 42 111 234 567</a>
+        <a href="#">Instagram</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Taana Baana. All rights reserved.</span>
+      <span class="urdu">شکریہ</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
